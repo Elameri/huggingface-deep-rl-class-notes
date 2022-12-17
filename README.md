@@ -1,5 +1,7 @@
 # Hugging Face Deep RL Course notes
 
+Class notes of [The Hugging Face Deep Reinforcement Learning Course 🤗 (v2.0)](https://huggingface.co/deep-rl-course/unit0/introduction)
+
 ## Syllabus
 -   [Unit 1: Introduction to Deep Reinforcement Learning](#unit-1-introduction-to-deep-reinforcement-learning)
 -   [Unit 2: Q-Learning](#unit-2-q-learning)
