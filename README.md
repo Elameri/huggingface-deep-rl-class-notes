@@ -22,7 +22,7 @@ A simple RL process would consist of an agent that:
 * **Environment** goes to a **new state** $S_1$
 * the **Environment** gives some **reward** $R_1$ to the agent
 
-This RL loop outputs a sequence ($S_0$, $A_0$, $R_1$, $S_1$)
+This RL loop outputs a sequence $(S_0, A_0, R_1, S_1)$
 
 The agent’s goal is to maximize its cumulative reward, called **the expected return**.
 
