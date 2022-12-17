@@ -143,7 +143,7 @@ def initialize_Q_table(env):
 ```python
 def greedy_policy(Qtable, state):
   # Exploitation: take the action with the highest state, action value
-  action = np.argmax(Qtable[state][:])
+  action = np.argmax(Qtable[state])
   
   return action
 
@@ -153,7 +153,7 @@ def epsilon_greedy_policy(Qtable, state, epsilon):
   random_int = random.uniform(0, 1)
 
   if random_int > epsilon: # exploitation
-    action = np.argmax(Qtable[state][:])
+    action = np.argmax(Qtable[state])
   elif random_int <= epsilon: # exploration
     action = env.action_space.sample()
   
@@ -193,7 +193,7 @@ def train(n_training_episodes, min_epsilon, max_epsilon, decay_rate, env, max_st
 
       # Update Q(s,a):= Q(s,a) + lr [R(s,a) + gamma * max Q(s',a') - Q(s,a)]
       # NB: Qtable[new_state][greedy_policy(Qtable, new_state)] = np.max(Qtable[new_state])
-      Qtable[state][action] += learning_rate * (reward + gamma * Qtable[new_state][greedy_policy(Qtable, new_state)] - Qtable[state][action])   
+      Qtable[state][action] += learning_rate * (reward + gamma * np.max(Qtable[new_state]) - Qtable[state][action])   
 
       if done:
         break
