@@ -38,8 +38,8 @@ The agent’s goal is to maximize its cumulative reward, called **the expected r
   * **Continuous space:** the number of possible actions is infinite like the number of possible actions for a self driving car.
 
 **Reward:** the only feedback for the agent, thanks to it the agent knows if the action taken was good or not. ($\tau$, read Tau, is a trajectory, meaning a sequence of states and actions)
-  * Expected cumulative reward: $R(\tau) = r_{t+1} + r_{t+2} + r_{t+3} + ... = \sum_{k=0}^{\infty} r_{t+k+1}$
-  * Discounted expected cumulative reward: $R(\tau) = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}$. Used when we care more about the rewards that come sooner because they're more likely to happen. The discount rate $\gamma$ is most of the time between 0.95 and 0.99.
+  * Expected cumulative reward: $\displaystyle R(\tau) = r_{t+1} + r_{t+2} + r_{t+3} + ... = \sum_{k=0}^{\infty} r_{t+k+1}$
+  * Discounted expected cumulative reward: $\displaystyle R(\tau) = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}$. Used when we care more about the rewards that come sooner because they're more likely to happen. The discount rate $\gamma$ is most of the time between 0.95 and 0.99.
 
 **Types of tasks:**
   * **Episodic tasks:** we have a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States (like in a Super Mario level).
@@ -62,13 +62,13 @@ The **Policy** $\pi$ is the brain of an RL agent, it takes a state an input and 
 **Value functions:**
   * **State-value function for policy $\pi$ :** 
   
-    $V_{\pi}(s) = E_{\pi}(G_t|S_t = s) = E_{\pi}(\sum_{k=0}^{\infty} \gamma^k r_{t+k+1}|S_t = s)$. 
+    $\displaystyle V_{\pi}(s) = E_{\pi}(G_t|S_t = s) = E_{\pi}(\sum_{k=0}^{\infty} \gamma^k r_{t+k+1}|S_t = s)$. 
   
     This is the expected return if the agent starts at state $s$ and then follows the policy forever after. In other words the value of the state $s$ under the policy $\pi$.
 
   * **Action-value function for policy $\pi$ :** 
   
-    $Q_{\pi}(s, a) = E_{\pi}(G_t|S_t = s, A_t = a) = E_{\pi}(\sum_{k=0}^{\infty} \gamma^k r_{t+k+1}|S_t = s, A_t = a)$. 
+    $\displaystyle Q_{\pi}(s, a) = E_{\pi}(G_t|S_t = s, A_t = a) = E_{\pi}(\sum_{k=0}^{\infty} \gamma^k r_{t+k+1}|S_t = s, A_t = a)$. 
   
     This is the expected return if the agent starts at state $s$, takes the action $a$ and then follows the policy forever after. In other words the value of the pair $(s, a)$ under the policy $\pi$.
 
@@ -104,10 +104,10 @@ Remember we have two policies since Q-Learning is an **off-policy** algorithm. T
 
 Greedy policy will also be the final policy we'll have when the Q-learning agent will be trained. The greedy policy is used to select an action from the Q-table.
 
-<img src="https://huggingface.co/datasets/huggingface-deep-rl-course/course-images/resolve/main/en/unit3/off-on-4.jpg" alt="Q-Learning" width="100%"/>
+<img src="imgs/off-on-policy.png" alt="Q-Learning" width="100%"/>
 
 
-<img src="https://huggingface.co/datasets/huggingface-deep-rl-course/course-images/resolve/main/en/unit3/Q-learning-2.jpg" alt="Q-Learning" width="100%"/>
+<img src="imgs/Q-learning.png" alt="Q-Learning" width="100%"/>
 
 ```python
 # Training parameters
